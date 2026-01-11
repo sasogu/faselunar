@@ -1,0 +1,50 @@
+{
+  "appTitle": "Fase lunar",
+  "loading": "Cargando datos lunares…",
+  "error": "No se pudo cargar la fase lunar.",
+  "retry": "Reintentar",
+  "refresh": "Actualizar",
+  "today": "Hoy",
+  "date": "Fecha",
+  "selectDate": "Seleccionar fecha",
+  "lunarCycle": "Ciclo lunar",
+  "illumination": "Iluminación",
+  "age": "Edad",
+  "days": "días",
+  "hours": "horas",
+  "minutes": "minutos",
+  "source": "Fuente",
+  "nextFullMoon": "Próxima luna llena",
+  "nextNewMoon": "Próxima luna nueva",
+  "nextQuarter": "Próximo cuarto",
+  "timeRemaining": "Tiempo restante",
+  "remainingDaysHours": "{days, plural, one{{days} día} other{{days} días}} {hours, plural, one{{hours} hora} other{{hours} horas}}",
+  "@remainingDaysHours": {
+    "placeholders": {
+      "days": {"type": "int"},
+      "hours": {"type": "int"}
+    }
+  },
+  "remainingHoursMinutes": "{hours, plural, one{{hours} hora} other{{hours} horas}} {minutes, plural, one{{minutes} minuto} other{{minutes} minutos}}",
+  "@remainingHoursMinutes": {
+    "placeholders": {
+      "hours": {"type": "int"},
+      "minutes": {"type": "int"}
+    }
+  },
+  "remainingMinutes": "{minutes, plural, one{{minutes} minuto} other{{minutes} minutos}}",
+  "@remainingMinutes": {
+    "placeholders": {
+      "minutes": {"type": "int"}
+    }
+  },
+  "phaseNewMoon": "Luna nueva",
+  "phaseWaxingCrescent": "Luna creciente",
+  "phaseFirstQuarter": "Cuarto creciente",
+  "phaseWaxingGibbous": "Gibosa creciente",
+  "phaseFullMoon": "Luna llena",
+  "phaseWaningGibbous": "Gibosa menguante",
+  "phaseLastQuarter": "Cuarto menguante",
+  "phaseWaningCrescent": "Luna menguante",
+  "phaseUnknown": "Fase desconocida"
+}

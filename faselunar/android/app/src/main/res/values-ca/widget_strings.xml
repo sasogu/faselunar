@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="moon_widget_content_description">Fase lunar</string>
+    <string name="moon_widget_phase_unknown">Fase lunar</string>
+    <string name="moon_widget_illumination">%1$.0f%% iluminació</string>
+
+    <string name="moon_phase_new">Lluna nova</string>
+    <string name="moon_phase_waxing_crescent">Creixent</string>
+    <string name="moon_phase_first_quarter">Quart creixent</string>
+    <string name="moon_phase_waxing_gibbous">Gibosa creixent</string>
+    <string name="moon_phase_full">Lluna plena</string>
+    <string name="moon_phase_waning_gibbous">Gibosa minvant</string>
+    <string name="moon_phase_last_quarter">Quart minvant</string>
+    <string name="moon_phase_waning_crescent">Minvant</string>
+</resources>

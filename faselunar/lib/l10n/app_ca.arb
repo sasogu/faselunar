@@ -1,0 +1,50 @@
+{
+  "appTitle": "Fase lunar",
+  "loading": "Carregant dades lunars…",
+  "error": "No s'ha pogut carregar la fase lunar.",
+  "retry": "Torna-ho a provar",
+  "refresh": "Actualitza",
+  "today": "Hui",
+  "date": "Data",
+  "selectDate": "Selecciona una data",
+  "lunarCycle": "Cicle lunar",
+  "illumination": "Il·luminació",
+  "age": "Edat",
+  "days": "dies",
+  "hours": "hores",
+  "minutes": "minuts",
+  "source": "Font",
+  "nextFullMoon": "Pròxima lluna plena",
+  "nextNewMoon": "Pròxima lluna nova",
+  "nextQuarter": "Pròxim quart",
+  "timeRemaining": "Temps restant",
+  "remainingDaysHours": "{days, plural, one{{days} dia} other{{days} dies}} {hours, plural, one{{hours} hora} other{{hours} hores}}",
+  "@remainingDaysHours": {
+    "placeholders": {
+      "days": {"type": "int"},
+      "hours": {"type": "int"}
+    }
+  },
+  "remainingHoursMinutes": "{hours, plural, one{{hours} hora} other{{hours} hores}} {minutes, plural, one{{minutes} minut} other{{minutes} minuts}}",
+  "@remainingHoursMinutes": {
+    "placeholders": {
+      "hours": {"type": "int"},
+      "minutes": {"type": "int"}
+    }
+  },
+  "remainingMinutes": "{minutes, plural, one{{minutes} minut} other{{minutes} minuts}}",
+  "@remainingMinutes": {
+    "placeholders": {
+      "minutes": {"type": "int"}
+    }
+  },
+  "phaseNewMoon": "Lluna nova",
+  "phaseWaxingCrescent": "Lluna creixent",
+  "phaseFirstQuarter": "Quart creixent",
+  "phaseWaxingGibbous": "Gibosa creixent",
+  "phaseFullMoon": "Lluna plena",
+  "phaseWaningGibbous": "Gibosa minvant",
+  "phaseLastQuarter": "Quart minvant",
+  "phaseWaningCrescent": "Lluna minvant",
+  "phaseUnknown": "Fase desconeguda"
+}
