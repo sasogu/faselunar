@@ -5,5 +5,7 @@
 
 void main(List<String> args) {
   // ignore: avoid_print
-  print('cors_proxy.dart ya no es necesario: la fase lunar se calcula localmente.');
+  print(
+    'cors_proxy.dart ya no es necesario: la fase lunar se calcula localmente.',
+  );
 }

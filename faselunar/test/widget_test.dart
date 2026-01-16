@@ -10,7 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:faselunar/main.dart';
 
 void main() {
-  testWidgets('MoonApp shows loading state initially', (WidgetTester tester) async {
+  testWidgets('MoonApp shows loading state initially', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(const MoonApp());
 
     // The app fetches lunar data on startup; before the Future completes,

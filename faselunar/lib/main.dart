@@ -51,8 +51,9 @@ class _MoonHomePageState extends State<MoonHomePage> {
   late Future<MoonPhaseResult> _future;
   late DateTime _selectedDate;
 
-  static const MethodChannel _widgetChannel =
-      MethodChannel('com.sasogu.faselunar/widget');
+  static const MethodChannel _widgetChannel = MethodChannel(
+    'com.sasogu.faselunar/widget',
+  );
 
   @override
   void initState() {
@@ -124,11 +125,7 @@ class _MoonHomePageState extends State<MoonHomePage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF0B1023),
-              Color(0xFF1C274A),
-              Color(0xFF2B335D),
-            ],
+            colors: [Color(0xFF0B1023), Color(0xFF1C274A), Color(0xFF2B335D)],
           ),
         ),
         child: SafeArea(
@@ -153,26 +150,33 @@ class _MoonHomePageState extends State<MoonHomePage> {
 
               final result = snapshot.data!;
               final locale = Localizations.localeOf(context).toLanguageTag();
-              final dateText = DateFormat.yMMMMEEEEd(locale).format(result.date);
+              final dateText = DateFormat.yMMMMEEEEd(
+                locale,
+              ).format(result.date);
               final phaseName = result.type.localizedName(l10n);
               final dateLabel = _isSameDate(result.date, DateTime.now())
                   ? l10n.today
                   : l10n.date;
-              final nextFullMoonText =
-                  DateFormat.yMMMMEEEEd(locale).format(result.nextFullMoon);
+              final nextFullMoonText = DateFormat.yMMMMEEEEd(
+                locale,
+              ).format(result.nextFullMoon);
               final remainingText = _formatRemaining(
                 result.timeUntilNextFullMoon,
                 l10n,
               );
-              final nextNewMoonText =
-                  DateFormat.yMMMMEEEEd(locale).format(result.nextNewMoon);
+              final nextNewMoonText = DateFormat.yMMMMEEEEd(
+                locale,
+              ).format(result.nextNewMoon);
               final remainingNewMoonText = _formatRemaining(
                 result.timeUntilNextNewMoon,
                 l10n,
               );
-              final nextQuarterName = result.nextQuarterType.localizedName(l10n);
-              final nextQuarterText =
-                  DateFormat.yMMMMEEEEd(locale).format(result.nextQuarter);
+              final nextQuarterName = result.nextQuarterType.localizedName(
+                l10n,
+              );
+              final nextQuarterText = DateFormat.yMMMMEEEEd(
+                locale,
+              ).format(result.nextQuarter);
               final remainingQuarterText = _formatRemaining(
                 result.timeUntilNextQuarter,
                 l10n,
@@ -183,8 +187,12 @@ class _MoonHomePageState extends State<MoonHomePage> {
                   : 24.0;
 
               return ListView(
-                padding:
-                    EdgeInsets.fromLTRB(horizontalPadding, 20, horizontalPadding, 32),
+                padding: EdgeInsets.fromLTRB(
+                  horizontalPadding,
+                  20,
+                  horizontalPadding,
+                  32,
+                ),
                 children: [
                   const SizedBox(height: 12),
                   Center(
@@ -199,8 +207,8 @@ class _MoonHomePageState extends State<MoonHomePage> {
                     phaseName,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -208,17 +216,17 @@ class _MoonHomePageState extends State<MoonHomePage> {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Colors.white70,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(color: Colors.white70),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     l10n.lunarCycle,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          color: Colors.white70,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleSmall?.copyWith(color: Colors.white70),
                   ),
                   const SizedBox(height: 8),
                   ClipRRect(
@@ -236,37 +244,26 @@ class _MoonHomePageState extends State<MoonHomePage> {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Colors.white60,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodySmall?.copyWith(color: Colors.white60),
                   ),
                   const SizedBox(height: 32),
                   _InfoTile(
                     label: l10n.illumination,
-                    value:
-                        '${(result.illumination * 100).toStringAsFixed(1)}%',
+                    value: '${(result.illumination * 100).toStringAsFixed(1)}%',
                   ),
                   const SizedBox(height: 12),
                   _InfoTile(
                     label: l10n.age,
-                    value:
-                        '${result.age.toStringAsFixed(1)} ${l10n.days}',
+                    value: '${result.age.toStringAsFixed(1)} ${l10n.days}',
                   ),
                   const SizedBox(height: 12),
-                  _InfoTile(
-                    label: l10n.nextFullMoon,
-                    value: nextFullMoonText,
-                  ),
+                  _InfoTile(label: l10n.nextFullMoon, value: nextFullMoonText),
                   const SizedBox(height: 12),
-                  _InfoTile(
-                    label: l10n.timeRemaining,
-                    value: remainingText,
-                  ),
+                  _InfoTile(label: l10n.timeRemaining, value: remainingText),
                   const SizedBox(height: 12),
-                  _InfoTile(
-                    label: l10n.nextNewMoon,
-                    value: nextNewMoonText,
-                  ),
+                  _InfoTile(label: l10n.nextNewMoon, value: nextNewMoonText),
                   const SizedBox(height: 12),
                   _InfoTile(
                     label: l10n.timeRemaining,
@@ -328,10 +325,7 @@ class _StatusView extends StatelessWidget {
             ),
             if (actionLabel != null && onAction != null) ...[
               const SizedBox(height: 16),
-              FilledButton(
-                onPressed: onAction,
-                child: Text(actionLabel!),
-              ),
+              FilledButton(onPressed: onAction, child: Text(actionLabel!)),
             ],
           ],
         ),
@@ -348,12 +342,12 @@ class _InfoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = Theme.of(context).textTheme.titleSmall?.copyWith(
-          color: Colors.white70,
-        );
-    final valueStyle = Theme.of(context).textTheme.titleMedium?.copyWith(
-          fontWeight: FontWeight.w600,
-        );
+    final labelStyle = Theme.of(
+      context,
+    ).textTheme.titleSmall?.copyWith(color: Colors.white70);
+    final valueStyle = Theme.of(
+      context,
+    ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600);
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -376,10 +370,7 @@ class _InfoTile extends StatelessWidget {
                   style: labelStyle,
                 ),
                 const SizedBox(height: 6),
-                Text(
-                  value,
-                  style: valueStyle,
-                ),
+                Text(value, style: valueStyle),
               ],
             );
           }
@@ -449,10 +440,7 @@ class MoonPhaseIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       size: Size.square(size),
-      painter: MoonPhasePainter(
-        illumination: illumination,
-        isWaxing: isWaxing,
-      ),
+      painter: MoonPhasePainter(illumination: illumination, isWaxing: isWaxing),
     );
   }
 }
@@ -582,7 +570,10 @@ class MoonPhaseService {
     final (type, age, illumination) = _calculate(date);
     final (nextFullMoon, untilFullMoon) = _nextFullMoon(date, age);
     final (nextNewMoon, untilNewMoon) = _nextNewMoon(date, age);
-    final (nextQuarter, nextQuarterType, untilQuarter) = _nextQuarter(date, age);
+    final (nextQuarter, nextQuarterType, untilQuarter) = _nextQuarter(
+      date,
+      age,
+    );
     return MoonPhaseResult(
       date: date,
       type: type,
@@ -601,8 +592,11 @@ class MoonPhaseService {
 
   /// Returns: (type, ageDays, illumination[0..1])
   (MoonPhaseType, double, double) _calculate(DateTime date) {
-    final secondsSinceRef =
-        date.toUtc().difference(_referenceNewMoon).inSeconds.toDouble();
+    final secondsSinceRef = date
+        .toUtc()
+        .difference(_referenceNewMoon)
+        .inSeconds
+        .toDouble();
     final daysSinceRef = secondsSinceRef / Duration.secondsPerDay;
     var age = daysSinceRef % synodicMonthDays;
     if (age < 0) {
@@ -643,18 +637,26 @@ class MoonPhaseService {
   }
 
   (DateTime, Duration) _nextNewMoon(DateTime from, double ageDays) {
-    final daysUntil = ageDays == 0 ? synodicMonthDays : (synodicMonthDays - ageDays);
+    final daysUntil = ageDays == 0
+        ? synodicMonthDays
+        : (synodicMonthDays - ageDays);
     final seconds = (daysUntil * Duration.secondsPerDay).round();
     final duration = Duration(seconds: seconds);
     return (from.add(duration), duration);
   }
 
-  (DateTime, MoonPhaseType, Duration) _nextQuarter(DateTime from, double ageDays) {
+  (DateTime, MoonPhaseType, Duration) _nextQuarter(
+    DateTime from,
+    double ageDays,
+  ) {
     final (targetAge, type) = ageDays <= _firstQuarterAgeDays
         ? (_firstQuarterAgeDays, MoonPhaseType.firstQuarter)
         : (ageDays <= _lastQuarterAgeDays
-            ? (_lastQuarterAgeDays, MoonPhaseType.lastQuarter)
-        : (synodicMonthDays + _firstQuarterAgeDays, MoonPhaseType.firstQuarter));
+              ? (_lastQuarterAgeDays, MoonPhaseType.lastQuarter)
+              : (
+                  synodicMonthDays + _firstQuarterAgeDays,
+                  MoonPhaseType.firstQuarter,
+                ));
 
     final daysUntil = targetAge - ageDays;
     final seconds = (daysUntil * Duration.secondsPerDay).round();
