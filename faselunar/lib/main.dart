@@ -71,9 +71,23 @@ class _MoonHomePageState extends State<MoonHomePage> {
   }
 
   Future<void> _requestWidgetUpdate() async {
-    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+    if (!kIsWeb &&
+        (defaultTargetPlatform == TargetPlatform.android ||
+            defaultTargetPlatform == TargetPlatform.iOS)) {
       try {
         await _widgetChannel.invokeMethod<void>('updateMoonWidget');
+      } catch (_) {
+        // Ignorar: el widget es opcional.
+      }
+    }
+  }
+
+  Future<void> _requestSelectedDate(DateTime date) async {
+    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
+      try {
+        await _widgetChannel.invokeMethod<void>('setSelectedDate', {
+          'date': date.millisecondsSinceEpoch,
+        });
       } catch (_) {
         // Ignorar: el widget es opcional.
       }
@@ -95,6 +109,7 @@ class _MoonHomePageState extends State<MoonHomePage> {
       _selectedDate = picked;
       _future = _service.fetch(_selectedDate);
     });
+    await _requestSelectedDate(picked);
   }
 
   @override
